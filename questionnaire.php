@@ -15,46 +15,67 @@
     </header>
     <main>
         <section>
-            <h2>Titre du Questionnaire</h2>
-            <p>
-                Description du questionnaire sélectionné. Expliquez ici les objectifs et l'importance de ce
-                questionnaire.
-            </p>
+            <?php
+            require_once 'db_connection.php';
+
+            $questionnaireId = $_GET['id'];
+
+            $stmt = $pdo->prepare("SELECT nom, description FROM Questionnaires WHERE id = :id");
+            $stmt->execute(['id' => $questionnaireId]);
+            $questionnaire = $stmt->fetch();
+
+            if ($questionnaire) {
+                echo '<h2>' . htmlspecialchars($questionnaire['nom']) . '</h2>';
+                echo '<p>' . htmlspecialchars($questionnaire['description']) . '</p>';
+            } else {
+                echo '<p class="text-red-500">Questionnaire introuvable.</p>';
+            }
+            ?>
         </section>
         <section>
             <h3>Questions</h3>
-            <form id="questionnaire-form">
+            <form id="questionnaire-form" method="POST" action="traiterReponses.php">
+                <input type="hidden" name="id_questionnaire" value="<?php echo htmlspecialchars($questionnaireId); ?>">
                 <!-- Exemple de question -->
                 <div class="question">
                     <?php
-                    require_once 'db_connection.php';
-
-                    $questionnaireId = $_GET['id'];
-
                     $stmt = $pdo->prepare("SELECT * FROM Questions WHERE id_questionnaire = :id_questionnaire ORDER BY numero_question");
                     $stmt->execute(['id_questionnaire' => $questionnaireId]);
                     $questions = $stmt->fetchAll();
 
+                    if (!$questions) {
+                        echo '<p class="text-red-500">Aucune question trouvée pour ce questionnaire.</p>';
+                    }
+
                     foreach ($questions as $question) {
-                        echo '<div class="mb-4">';
+                        $dependenceId = $question['id_question_dependante'];
+                        $condition = $question['valeur_condition'];
+
+                        echo '<div class="mb-4 question" data-question-id="' . $question['id'] . '"';
+                        if ($dependenceId) {
+                            echo ' data-dependence-id="' . $dependenceId . '" data-condition="' . htmlspecialchars($condition) . '"';
+                        }
+                        echo '>';
+
                         echo '<label class="block text-sm font-medium text-gray-700">' . htmlspecialchars($question['question']) . '</label>';
 
                         if ($question['type'] === 'text') {
-                            echo '<input type="text" name="question' . $question['id'] . '" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">';
+                            echo '<input type="text" name="reponses[' . $question['id'] . ']" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">';
                         } elseif ($question['type'] === 'multiple') {
                             echo '<div class="mt-2">';
-                            echo '<label><input type="radio" name="question' . $question['id'] . '" value="oui" class="mr-2"> Oui</label>';
-                            echo '<label class="ml-4"><input type="radio" name="question' . $question['id'] . '" value="non" class="mr-2"> Non</label>';
+                            echo '<label><input type="radio" name="reponses[' . $question['id'] . ']" value="oui" class="mr-2"> Oui</label>';
+                            echo '<label class="ml-4"><input type="radio" name="reponses[' . $question['id'] . ']" value="non" class="mr-2"> Non</label>';
                             echo '</div>';
                         }
 
                         echo '</div>';
                     }
                     ?>
-                    <input type="text" id="question1" name="question1" required>
                 </div>
                 <!-- Ajoutez d'autres questions ici -->
-                <button type="submit">Soumettre</button>
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    Soumettre
+                </button>
             </form>
         </section>
     </main>
