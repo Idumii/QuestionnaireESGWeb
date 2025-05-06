@@ -12,23 +12,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->execute(['nom' => $titre, 'description' => $description]);
         $questionnaireId = $pdo->lastInsertId();
 
-        // Insérer les questions
+        // Étape 1 : Insérer toutes les questions sans dépendances
+        $questionIds = [];
         foreach ($questions as $index => $question) {
             $text = $question['text'];
-            $dependence = $question['dependence'] ?? null;
-            $condition = $question['condition'] ?? null;
+            $type = $question['type'] ?? 'text'; // Par défaut, type = 'text'
 
             $stmt = $pdo->prepare("
-                INSERT INTO Questions (id_questionnaire, numero_question, question, id_question_dependante, valeur_condition)
-                VALUES (:id_questionnaire, :numero_question, :question, :id_question_dependante, :valeur_condition)
+                INSERT INTO Questions (id_questionnaire, numero_question, question, type)
+                VALUES (:id_questionnaire, :numero_question, :question, :type)
             ");
             $stmt->execute([
                 'id_questionnaire' => $questionnaireId,
                 'numero_question' => $index,
                 'question' => $text,
-                'id_question_dependante' => $dependence,
-                'valeur_condition' => $condition,
+                'type' => $type,
             ]);
+
+            // Stocker l'ID de la question insérée
+            $questionIds[$index] = $pdo->lastInsertId();
+        }
+
+        // Étape 2 : Mettre à jour les questions avec leurs dépendances
+        foreach ($questions as $index => $question) {
+            if (!empty($question['dependence'])) {
+                $dependenceIndex = $question['dependence'];
+                $dependenceId = $questionIds[$dependenceIndex];
+                $condition = $question['condition'] ?? null;
+
+                $stmt = $pdo->prepare("
+                    UPDATE Questions
+                    SET id_question_dependante = :id_question_dependante, valeur_condition = :valeur_condition
+                    WHERE id = :id
+                ");
+                $stmt->execute([
+                    'id_question_dependante' => $dependenceId,
+                    'valeur_condition' => $condition,
+                    'id' => $questionIds[$index],
+                ]);
+            }
         }
 
         echo "Questionnaire créé avec succès !";
