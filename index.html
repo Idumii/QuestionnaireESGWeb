@@ -1,3 +1,4 @@
+<!-- filepath: c:\Users\User\Documents\QuestionnaireLucas\QuestionnaireESGWeb\index.php -->
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -21,12 +22,32 @@
             </p>
         </section>
         <section>
+            <h2>Liste des questionnaires</h2>
+            <ul>
+                <?php
+                // Inclure la connexion à la base de données
+                require_once 'db_connection.php';
+
+                try {
+                    // Récupérer les questionnaires depuis la base de données
+                    $stmt = $pdo->query("SELECT id, nom, description FROM Questionnaires");
+                    while ($row = $stmt->fetch()) {
+                        echo '<li>';
+                        echo '<strong>' . htmlspecialchars($row['nom']) . '</strong><br>';
+                        echo htmlspecialchars($row['description']) . '<br>';
+                        echo '<a href="questionnaire.php?id=' . $row['id'] . '">Répondre</a>';
+                        echo '</li>';
+                    }
+                } catch (PDOException $e) {
+                    echo "Erreur lors de la récupération des questionnaires : " . $e->getMessage();
+                }
+                ?>
+            </ul>
+        </section>
+        <section>
             <h2>Navigation</h2>
             <p>
-                <a href="questionnaire.html">
-                    <button>Répondre à un Questionnaire</button>
-                </a>
-                <a href="creationQuestionnaire.html">
+                <a href="creationQuestionnaire.php">
                     <button>Créer un Nouveau Questionnaire</button>
                 </a>
             </p>
