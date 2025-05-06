@@ -68,11 +68,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Création de Questionnaire</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            plugins: [daisyui],
+            daisyui: {
+                themes: ["corporate", "dark"], // Vous pouvez choisir un thème ici
+            },
+        };
+    </script>
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-2xl font-bold text-center">Créer un Nouveau Questionnaire</h1>
+    <header class="navbar bg-blue-600 text-white">
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl">Questionnaires ESG</a>
+        </div>
     </header>
     <main class="p-6 max-w-4xl mx-auto bg-white shadow-md rounded">
         <form id="creation-form" class="space-y-6" method="POST" action="">
