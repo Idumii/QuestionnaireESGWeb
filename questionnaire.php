@@ -5,39 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réponse au Questionnaire</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
-    <header class="bg-blue-600 text-white p-4">
-        <h1 class="text-2xl font-bold text-center">Répondez au Questionnaire</h1>
+<body>
+    <header>
+        <h1>Répondez au Questionnaire</h1>
     </header>
-    <main class="p-6 max-w-4xl mx-auto bg-white shadow-md rounded">
-        <section class="mb-6">
-            <h2 class="text-xl font-semibold mb-2">Titre du Questionnaire</h2>
-            <p class="text-gray-700">
+    <main>
+        <section>
+            <h2>Titre du Questionnaire</h2>
+            <p>
                 Description du questionnaire sélectionné. Expliquez ici les objectifs et l'importance de ce
                 questionnaire.
             </p>
         </section>
         <section>
-            <h3 class="text-lg font-semibold mb-4">Questions</h3>
-            <form id="questionnaire-form" class="space-y-4">
+            <h3>Questions</h3>
+            <form id="questionnaire-form">
                 <!-- Exemple de question -->
                 <div class="question">
-                    <label for="question1" class="block text-sm font-medium text-gray-700">Question 1 : Votre réponse
-                        ici</label>
-                    <input type="text" id="question1" name="question1" required
-                        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    <?php
+                    require_once 'db_connection.php';
+
+                    $questionnaireId = $_GET['id'];
+
+                    $stmt = $pdo->prepare("SELECT * FROM Questions WHERE id_questionnaire = :id_questionnaire ORDER BY numero_question");
+                    $stmt->execute(['id_questionnaire' => $questionnaireId]);
+                    $questions = $stmt->fetchAll();
+
+                    foreach ($questions as $question) {
+                        echo '<div class="mb-4">';
+                        echo '<label class="block text-sm font-medium text-gray-700">' . htmlspecialchars($question['question']) . '</label>';
+
+                        if ($question['type'] === 'text') {
+                            echo '<input type="text" name="question' . $question['id'] . '" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md">';
+                        } elseif ($question['type'] === 'multiple') {
+                            echo '<div class="mt-2">';
+                            echo '<label><input type="radio" name="question' . $question['id'] . '" value="oui" class="mr-2"> Oui</label>';
+                            echo '<label class="ml-4"><input type="radio" name="question' . $question['id'] . '" value="non" class="mr-2"> Non</label>';
+                            echo '</div>';
+                        }
+
+                        echo '</div>';
+                    }
+                    ?>
+                    <input type="text" id="question1" name="question1" required>
                 </div>
                 <!-- Ajoutez d'autres questions ici -->
-                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
-                    Soumettre
-                </button>
+                <button type="submit">Soumettre</button>
             </form>
         </section>
     </main>
-    <footer class="bg-gray-800 text-white text-center p-4 mt-6">
+    <footer>
         <p>&copy; 2025 Questionnaires ESG. Tous droits réservés.</p>
     </footer>
     <script src="script.js"></script>
