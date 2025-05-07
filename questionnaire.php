@@ -7,6 +7,7 @@
     <title>Réponse au Questionnaire</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
     <script>
         tailwind.config = {
             plugins: [daisyui],
