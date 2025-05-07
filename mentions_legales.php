@@ -48,7 +48,7 @@
             </p>
         </section>
     </main>
-    <footer class="bg-gray-800 text-gray-300 text-center p-4">
+    <footer class="bg-gray-800 text-gray-300 text-center p-4 mt-auto">
         <div class="flex justify-center space-x-4 mb-2">
             <a href="https://github.com" target="_blank" class="hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">

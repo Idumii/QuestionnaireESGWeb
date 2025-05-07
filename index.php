@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="src/output.css">
 </head>
 
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
     <main class="flex-grow flex flex-col justify-center items-center text-center p-6">
         <section class="mb-6">
             <h1 class="text-3xl font-bold mb-4">Bienvenue sur les Questionnaires ESG</h1>
-            <p class="text-gray-300 max-w-2xl">
+            <p class="text-gray-600 max-w-2xl">
                 Les questionnaires ESG sont conçus pour recueillir des informations importantes sur divers sujets liés
                 à l'environnement, au social et à la gouvernance. Ils permettent de mieux comprendre les enjeux actuels
                 et d'agir en conséquence.
