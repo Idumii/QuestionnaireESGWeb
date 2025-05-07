@@ -5,21 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil - Questionnaires ESG</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/daisyui@latest"></script>
-    <script>
-        tailwind.config = {
-            plugins: [daisyui],
-            daisyui: {
-                themes: ["corporate", "dark"], // Vous pouvez choisir un thème ici
-            },
-        };
-    </script>
+    <link rel="stylesheet" href="src/output.css">
 </head>
 
 <body class="bg-gray-100 text-gray-800">
-    <header class="navbar bg-blue-600 text-white">
-        <div class="flex-1">
+    <header class="navbar bg-blue-600 text-white p-4">
+        <div class="flex justify-between items-center max-w-4xl mx-auto">
             <a class="btn btn-ghost normal-case text-xl">Questionnaires ESG</a>
         </div>
     </header>
@@ -50,14 +41,15 @@
                         echo '</li>';
                     }
                 } catch (PDOException $e) {
-                    echo '<p class="text-red-500">Erreur lors de la récupération des questionnaires : ' . $e->getMessage() . '</p>';
+                    echo '<p class="text-red-500 border border-red-500 bg-red-100 p-2 rounded">Erreur lors de la récupération des questionnaires : ' . $e->getMessage() . '</p>';
                 }
                 ?>
             </ul>
         </section>
-        <section>
+        <section class="mt-6">
             <h2 class="text-xl font-semibold mb-2">Navigation</h2>
-            <a href="creationQuestionnaire.php" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+            <a href="creationQuestionnaire.php"
+                class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition duration-300">
                 Créer un Nouveau Questionnaire
             </a>
         </section>
