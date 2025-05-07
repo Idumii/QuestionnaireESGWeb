@@ -9,23 +9,43 @@
 </head>
 
 <body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
-    <main class="flex-grow flex flex-col justify-center items-center text-center p-6">
-        <section class="mb-6">
-            <h1 class="text-3xl font-bold mb-4">Bienvenue sur les Questionnaires ESG</h1>
-            <p class="text-gray-600 max-w-2xl">
-                Les questionnaires ESG sont conçus pour recueillir des informations importantes sur divers sujets liés
-                à l'environnement, au social et à la gouvernance. Ils permettent de mieux comprendre les enjeux actuels
-                et d'agir en conséquence.
-            </p>
-        </section>
-        <section class="mt-6">
-            <a href="creationQuestionnaire.php"
-                class="bg-green-500 text-white px-6 py-3 rounded hover:bg-green-600 transition duration-300">
-                Créer un Nouveau Questionnaire
-            </a>
-        </section>
-    </main>
-    <footer class="bg-gray-800 text-gray-300 text-center p-4">
+    <div class="relative isolate px-6 pt-14 lg:px-8">
+        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+            aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-green-400 to-blue-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            </div>
+        </div>
+        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Bienvenue sur les Questionnaires
+                    ESG</h1>
+                <p class="mt-6 text-lg leading-8 text-gray-600">
+                    Les questionnaires ESG sont conçus pour recueillir des informations importantes sur divers sujets
+                    liés
+                    à l'environnement, au social et à la gouvernance. Ils permettent de mieux comprendre les enjeux
+                    actuels
+                    et d'agir en conséquence.
+                </p>
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    <a href="creationQuestionnaire.php"
+                        class="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
+                        Créer un Nouveau Questionnaire
+                    </a>
+                    <a href="mentions_legales.php" class="text-sm font-semibold leading-6 text-gray-900">
+                        Mentions légales / CGU <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+            aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-green-400 to-blue-500 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
+            </div>
+        </div>
+    </div>
+    <footer class="bg-gray-800 text-gray-300 text-center p-4 mt-auto">
         <div class="flex justify-center space-x-4 mb-2">
             <a href="https://github.com" target="_blank" class="hover:text-white">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -41,7 +61,6 @@
             </a>
         </div>
         <p>&copy; 2025 Vincent Diévart. Tous droits réservés.</p>
-        <a href="mentions_legales.php" class="text-gray-400 hover:text-white">Mentions légales / CGU</a>
     </footer>
 </body>
 
