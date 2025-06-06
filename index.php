@@ -33,9 +33,9 @@
                                 <a href="index.php"
                                     class="inline-block w-full py-2 mx-0 ml-6 text-left text-lime-900 md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 text-lime-700 md:text-center">Accueil</a>
                                 <a href="questionnaire.php"
-                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 text-lime-700 md:text-center">Questionnaire</a>
+                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-lime-900 lg:mx-3 text-lime-700 md:text-center">Questionnaire</a>
                                 <a href="mentions_legales.php"
-                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3  text-lime-700 md:text-center">Mentions légales</a>
+                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-lime-900 lg:mx-3  text-lime-700 md:text-center">Mentions légales</a>
 
                                 <a href="#_"
                                     class="absolute top-0 left-0 hidden py-2 mt-6 ml-10 mr-2 text-gray-600 lg:inline-block md:mt-0 md:ml-2 lg:mx-3 md:relative">
