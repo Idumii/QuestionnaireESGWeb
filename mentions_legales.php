@@ -1,3 +1,4 @@
+<?php
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -6,18 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales / CGU</title>
     <link rel="stylesheet" href="src/output.css">
+    <!-- Add Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
     <main class="flex-grow flex flex-col justify-center items-center text-center p-6">
         <header>
-            <section class="w-full px-6 pb-12 antialiased bg-white tails-selected-element">
+            <section class="w-full px-6 pb-12 antialiased bg-white">
                 <div class="mx-auto max-w-7xl">
                     <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
                         <div
                             class="relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium md:overflow-visible lg:justify-center sm:px-4 md:px-2 lg:px-0">
                             <div class="flex items-center justify-start w-1/4 h-full pr-4">
-                                <a href="#_"
+                                <a href="index.php"
                                     class="flex items-center text-lg py-4 space-x-2 font-extrabold text-gray-900 md:py-0">
                                     <span class="text-[40px] mr-2">✪</span> logo </a>
                             </div>
@@ -30,19 +33,17 @@
                                         <span class="text-4xl mr-2">✪</span> logo </a>
                                     <div
                                         class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 font-semibold md:mt-0 md:flex-row md:items-center">
-                                        <a href="#_"
+                                        <a href="index.php"
                                             class="inline-block w-full py-2 mx-0 ml-6 text-left text-black md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">Accueil</a>
-                                        <a href="#_"
+                                        <a href="questionnaire.php"
                                             class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Questionnaire</a>
-                                        <a href="#_"
+                                        <a href="mentions_legales.php"
                                             class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Mentions
                                             légales</a>
-                                        <a href="#_"
-                                            class="absolute top-0 left-0 hidden py-2 mt-6 ml-10 mr-2 text-gray-600 lg:inline-block md:mt-0 md:ml-2 lg:mx-3 md:relative">
-                                        </a>
                                     </div>
                                     <div
                                         class="flex flex-col items-start justify-end md:ml-16 font-semibold lg:ml-0 w-full pt-4 md:items-center md:w-1/3 flex-shrink-0 md:flex-row md:py-0">
+                                        <a href="contact.php" class="inline-block w-auto px-4 py-2 mx-0 text-left text-gray-500 md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Contact</a>
                                     </div>
                                 </div>
                             </div>
@@ -53,7 +54,7 @@
                                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                                 </svg>
                                 <svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M6 18L18 6M6 6l12 12"></path>
                                 </svg>
@@ -61,11 +62,8 @@
                         </div>
                     </nav>
                     <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
-                    <!-- Main Hero Content -->
-                    <!-- End Main Hero Content -->
                 </div>
             </section>
-
         </header>
 
 
