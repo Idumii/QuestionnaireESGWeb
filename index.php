@@ -66,27 +66,22 @@
             <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
             <!-- Main Hero Content -->
             <div
-                class="container max-w-md py-20 sm:py-32 mx-auto mt-px text-left sm:max-w-xl sm:px-4 md:max-w-none md:text-center">
-                <h1
-                    class="text-4xl font-bold leading-10 tracking-tight text-left text-gray-900 sm:text-center sm:text-6xl md:text-7xl lg:text-8xl text-balance 2xl:text-lime-700">
-                    Start Crafting Your Next Great Idea</h1>
-                <div
-                    class="mx-auto mt-5 text-gray-400 md:mt-8 max-w-md lg:max-w-lg sm:text-center md:text-xl 2xl:text-lime-700">
-                    Simplifying the creation of landing pages, blog pages, application pages and so much more!</div>
-                <div
-                    class="flex flex-col items-center font-semibold justify-center mt-8 space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4">
-                    <span class="relative inline-flex w-full sm:w-auto">
-                        <a href="#_"
-                            class="inline-flex items-center justify-center w-full px-6 py-3 md:px-8 md:py-4 text-base leading-6 text-white bg-gray-900 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
-                            Répondre au questionnaire
-                        </a>
-                    </span>
-                    <span class="relative inline-flex w-full sm:w-auto">
-
-                    </span>
+                class="container max-w-lg py-16 mx-auto text-center">
+                <h1 class="text-4xl font-bold leading-10 tracking-tight text-lime-700 sm:text-6xl md:text-7xl lg:text-8xl">
+                    Start Crafting Your Next Great Idea
+                </h1>
+                <p class="mx-auto mt-5 text-gray-400 md:mt-8 max-w-lg md:text-xl">
+                    Simplifying the creation of landing pages, blog pages, application pages and so much more!
+                </p>
+                <div class="flex flex-col items-center justify-center mt-8 space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+                    <a href="#_" class="inline-flex items-center justify-center px-6 py-3 text-base leading-6 text-white bg-gray-900 border border-transparent rounded-full hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                        Répondre au questionnaire
+                    </a>
                 </div>
             </div>
             <!-- End Main Hero Content -->
         </div>
     </section>
 </body>
+
+</html>
