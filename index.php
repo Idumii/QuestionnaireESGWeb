@@ -30,12 +30,12 @@
                             </a>
                             <div
                                 class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 font-semibold md:mt-0 md:flex-row md:items-center">
-                                <a href="#_"
-                                    class="inline-block w-full py-2 mx-0 ml-6 text-left text-black md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 text-lime-700 md:text-center">Accueil</a>
-                                <a href="#_"
-                                    class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 text-lime-700 md:text-center">Questionnaire</a>
-                                <a href="#_"
-                                    class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Contact</a>
+                                <a href="index.php"
+                                    class="inline-block w-full py-2 mx-0 ml-6 text-left text-lime-900 md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 text-lime-700 md:text-center">Accueil</a>
+                                <a href="questionnaire.php"
+                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 text-lime-700 md:text-center">Questionnaire</a>
+                                <a href="mentions_legales.php"
+                                    class="inline-block w-full py-2 mx-0 text-left text-lime-900 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3  text-lime-700 md:text-center">Mentions légales</a>
 
                                 <a href="#_"
                                     class="absolute top-0 left-0 hidden py-2 mt-6 ml-10 mr-2 text-gray-600 lg:inline-block md:mt-0 md:ml-2 lg:mx-3 md:relative">
