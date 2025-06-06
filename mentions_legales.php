@@ -22,7 +22,8 @@
                                     class="flex items-center text-lg py-4 space-x-2 font-extrabold text-gray-900 md:py-0">
                                     <span class="text-[40px] mr-2">✪</span> logo </a>
                             </div>
-                            <div class="top-0 left-0 items-start w-full h-full p-4 bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute md:bg-transparent justify-between md:p-0 md:relative md:flex">
+                            <div
+                                class="top-0 left-0 items-start w-full h-full p-4 bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute md:bg-transparent justify-between md:p-0 md:relative md:flex">
                                 <div
                                     class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
                                     <a href="#_"
@@ -40,7 +41,8 @@
                                     </div>
                                     <div
                                         class="flex flex-col items-start justify-end md:ml-16 font-semibold lg:ml-0 w-full pt-4 md:items-center md:w-1/3 flex-shrink-0 md:flex-row md:py-0">
-                                        <a href="contact.php" class="inline-block w-auto px-4 py-2 mx-0 text-left text-gray-500 md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Contact</a>
+                                        <a href="contact.php"
+                                            class="inline-block w-auto px-4 py-2 mx-0 text-left text-gray-500 md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Contact</a>
                                     </div>
                                 </div>
                             </div>
@@ -54,76 +56,81 @@
                             </label>
                             <style>
                                 @media (max-width: 767px) {
-                                    .top-0.left-0.items-start { display: none; }
-                                    #menu-toggle:checked ~ .top-0.left-0.items-start { display: flex; position: fixed; }
+                                    .top-0.left-0.items-start {
+                                        display: none;
+                                    }
+
+                                    #menu-toggle:checked~.top-0.left-0.items-start {
+                                        display: flex;
+                                        position: fixed;
+                                    }
                                 }
                             </style>
                         </div>
                     </nav>
                     <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
+                    <div class="px-8 mx-auto max-w-7xl lg:px-16">
+                        <h2 class="mb-4 text-xl font-bold md:text-3xl">Mentions légales</h2>
+                        <div class="grid grid-cols-1 gap-8 text-zinc-600 md:grid-cols-2 md:gap-16">
+                            <div>
+                                <h5 class="mt-10 mb-3 font-semibold text-zinc-900">Éditeur du site</h5>
+                                <p>
+                                    Nom de l'entreprise : [Nom de l'entreprise]<br>
+                                    Adresse : [Adresse de l'entreprise]<br>
+                                    Téléphone : [Numéro de téléphone]<br>
+                                    Email : [Adresse email]<br>
+                                    SIRET : [Numéro SIRET]<br>
+                                    Directeur de la publication : [Nom du responsable]
+                                </p>
+                            </div>
+                            <div>
+                                <h5 class="mt-10 mb-3 font-semibold text-zinc-900">Hébergement</h5>
+                                <p>
+                                    Hébergeur : [Nom de l'hébergeur]<br>
+                                    Adresse : [Adresse de l'hébergeur]<br>
+                                    Téléphone : [Numéro de téléphone de l'hébergeur]
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-12">
+                            <h2 class="mb-4 text-xl font-bold md:text-3xl">RGPD</h2>
+                            <div class="text-zinc-600">
+                                <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Collecte des données</h5>
+                                <p>
+                                    Les informations recueillies sur ce site sont enregistrées dans un fichier
+                                    informatisé par
+                                    [Nom de l'entreprise] pour [finalité du traitement].<br>
+                                    Elles sont conservées pendant [durée de conservation] et sont destinées à
+                                    [destinataires des
+                                    données].
+                                </p>
+                                <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Droits des utilisateurs</h5>
+                                <p>
+                                    Conformément à la loi « informatique et libertés » et au RGPD, vous pouvez exercer
+                                    votre
+                                    droit d'accès, de rectification, d'opposition, de suppression et de portabilité des
+                                    données
+                                    vous concernant en contactant : [Adresse email de contact].
+                                </p>
+                                <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Cookies</h5>
+                                <p>
+                                    Ce site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez
+                                    configurer
+                                    votre navigateur pour refuser les cookies.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="mt-12">
+                            <h2 class="mb-4 text-xl font-bold md:text-3xl">Contact</h2>
+                            <p class="text-zinc-600">
+                                Pour toute question, vous pouvez nous contacter à l'adresse suivante : [Adresse email de
+                                contact].
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </header>
-
-
-        <section class="py-24 bg-white">
-            <div class="px-8 mx-auto max-w-7xl lg:px-16">
-                <h2 class="mb-4 text-xl font-bold md:text-3xl">Mentions légales</h2>
-                <div class="grid grid-cols-1 gap-8 text-zinc-600 md:grid-cols-2 md:gap-16">
-                    <div>
-                        <h5 class="mt-10 mb-3 font-semibold text-zinc-900">Éditeur du site</h5>
-                        <p>
-                            Nom de l'entreprise : [Nom de l'entreprise]<br>
-                            Adresse : [Adresse de l'entreprise]<br>
-                            Téléphone : [Numéro de téléphone]<br>
-                            Email : [Adresse email]<br>
-                            SIRET : [Numéro SIRET]<br>
-                            Directeur de la publication : [Nom du responsable]
-                        </p>
-                    </div>
-                    <div>
-                        <h5 class="mt-10 mb-3 font-semibold text-zinc-900">Hébergement</h5>
-                        <p>
-                            Hébergeur : [Nom de l'hébergeur]<br>
-                            Adresse : [Adresse de l'hébergeur]<br>
-                            Téléphone : [Numéro de téléphone de l'hébergeur]
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-12">
-                    <h2 class="mb-4 text-xl font-bold md:text-3xl">RGPD</h2>
-                    <div class="text-zinc-600">
-                        <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Collecte des données</h5>
-                        <p>
-                            Les informations recueillies sur ce site sont enregistrées dans un fichier informatisé par
-                            [Nom de l'entreprise] pour [finalité du traitement].<br>
-                            Elles sont conservées pendant [durée de conservation] et sont destinées à [destinataires des
-                            données].
-                        </p>
-                        <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Droits des utilisateurs</h5>
-                        <p>
-                            Conformément à la loi « informatique et libertés » et au RGPD, vous pouvez exercer votre
-                            droit d'accès, de rectification, d'opposition, de suppression et de portabilité des données
-                            vous concernant en contactant : [Adresse email de contact].
-                        </p>
-                        <h5 class="mt-6 mb-2 font-semibold text-zinc-900">Cookies</h5>
-                        <p>
-                            Ce site utilise des cookies pour améliorer l'expérience utilisateur. Vous pouvez configurer
-                            votre navigateur pour refuser les cookies.
-                        </p>
-                    </div>
-                </div>
-                <div class="mt-12">
-                    <h2 class="mb-4 text-xl font-bold md:text-3xl">Contact</h2>
-                    <p class="text-zinc-600">
-                        Pour toute question, vous pouvez nous contacter à l'adresse suivante : [Adresse email de
-                        contact].
-                    </p>
-                </div>
-            </div>
-        </section>
-
-
     </main>
 </body>
 
