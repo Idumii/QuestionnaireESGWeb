@@ -9,8 +9,8 @@
     <!-- Removed Alpine.js dependency -->
 </head>
 
-<body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
-    <main class="flex-grow flex flex-col justify-center items-center text-center p-6">
+<body>
+    <main>
         <header>
             <section class="w-full px-6 pb-12 antialiased bg-white">
                 <div class="mx-auto max-w-7xl">
