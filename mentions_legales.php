@@ -74,7 +74,7 @@ error_reporting(E_ALL);
             </nav>
             <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
             <!-- Main Hero Content -->
-            <section class="w-full px-6 pb-12 antialiased bg-white">
+            <section class="w-full px-6 pb-12 pt-16 antialiased bg-white">
                 <div class="mx-auto max-w-7xl">
                     <h1 class="text-4xl font-bold text-center text-lime-700">Mentions légales</h1>
                     <div class="mt-8 space-y-6">
