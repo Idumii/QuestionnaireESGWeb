@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales / CGU</title>
     <link rel="stylesheet" href="src/output.css">
-    <!-- Add Alpine.js -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Removed Alpine.js dependency -->
 </head>
 
 <body class="bg-gray-900 text-gray-100 flex flex-col min-h-screen">
@@ -15,7 +14,7 @@
         <header>
             <section class="w-full px-6 pb-12 antialiased bg-white">
                 <div class="mx-auto max-w-7xl">
-                    <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
+                    <nav class="relative z-50 h-24 select-none">
                         <div
                             class="relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium md:overflow-visible lg:justify-center sm:px-4 md:px-2 lg:px-0">
                             <div class="flex items-center justify-start w-1/4 h-full pr-4">
@@ -23,8 +22,7 @@
                                     class="flex items-center text-lg py-4 space-x-2 font-extrabold text-gray-900 md:py-0">
                                     <span class="text-[40px] mr-2">✪</span> logo </a>
                             </div>
-                            <div class="top-0 left-0 items-start hidden w-full h-full p-4 bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute md:bg-transparent justify-between md:p-0 md:relative md:flex"
-                                :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                            <div class="top-0 left-0 items-start w-full h-full p-4 bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute md:bg-transparent justify-between md:p-0 md:relative md:flex">
                                 <div
                                     class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
                                     <a href="#_"
@@ -46,18 +44,20 @@
                                     </div>
                                 </div>
                             </div>
-                            <div @click="showMenu = !showMenu"
+                            <!-- Replaced Alpine.js mobile menu toggle with a simple HTML/CSS solution -->
+                            <input type="checkbox" id="menu-toggle" class="hidden">
+                            <label for="menu-toggle"
                                 class="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100">
-                                <svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round"
-                                    stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                                </svg>
-                                <svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M6 18L18 6M6 6l12 12"></path>
-                                </svg>
-                            </div>
+                                <span class="block w-5 h-0.5 bg-gray-700 my-0.5"></span>
+                                <span class="block w-5 h-0.5 bg-gray-700 my-0.5"></span>
+                                <span class="block w-5 h-0.5 bg-gray-700 my-0.5"></span>
+                            </label>
+                            <style>
+                                @media (max-width: 767px) {
+                                    .top-0.left-0.items-start { display: none; }
+                                    #menu-toggle:checked ~ .top-0.left-0.items-start { display: flex; position: fixed; }
+                                }
+                            </style>
                         </div>
                     </nav>
                     <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
