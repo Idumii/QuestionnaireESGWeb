@@ -7,6 +7,7 @@
     <title>Mentions Légales / CGU</title>
     <link rel="stylesheet" href="src/output.css">
     <!-- Removed Alpine.js dependency -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 </head>
 
 <body>
