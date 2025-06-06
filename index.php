@@ -8,60 +8,85 @@
     <link rel="stylesheet" href="src/output.css">
 </head>
 
-<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
-    <div class="relative isolate px-6 pt-14 lg:px-8">
-        <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
-            aria-hidden="true">
-            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-green-400 to-blue-500 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
-                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-            </div>
-        </div>
-        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-            <div class="text-center">
-                <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Bienvenue sur les Questionnaires
-                    ESG</h1>
-                <p class="mt-6 text-lg leading-8 text-gray-600">
-                    Les questionnaires ESG sont conçus pour recueillir des informations importantes sur divers sujets
-                    liés
-                    à l'environnement, au social et à la gouvernance. Ils permettent de mieux comprendre les enjeux
-                    actuels
-                    et d'agir en conséquence.
-                </p>
-                <div class="mt-10 flex items-center justify-center gap-x-6">
-                    <a href="creationQuestionnaire.php"
-                        class="rounded-md bg-green-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">
-                        Créer un Nouveau Questionnaire
-                    </a>
-                    <a href="mentions_legales.php" class="text-sm font-semibold leading-6 text-gray-900">
-                        Mentions légales / CGU <span aria-hidden="true">→</span>
-                    </a>
+<body>
+    <section class="w-full px-6 pb-12 antialiased bg-white 2xl:font-serif 2xl:text-green-50 tails-selected-element">
+        <div class="mx-auto max-w-7xl">
+            <nav class="relative z-50 h-24 select-none" x-data="{ showMenu: false }">
+                <div
+                    class="relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium md:overflow-visible lg:justify-center sm:px-4 md:px-2 lg:px-0">
+                    <div class="flex items-center justify-start w-1/4 h-full pr-4">
+                        <a href="#_"
+                            class="flex items-center text-lg py-4 space-x-2 font-extrabold text-gray-900 md:py-0">
+                            <span class="text-[40px] mr-2">✪</span> logo
+                        </a>
+                    </div>
+                    <div class="top-0 left-0 items-start hidden w-full h-full p-4 bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute md:bg-transparent justify-between md:p-0 md:relative md:flex 2xl:text-lime-700"
+                        :class="{'flex fixed': showMenu, 'hidden': !showMenu }">
+                        <div
+                            class="flex-col w-full h-auto overflow-hidden bg-white rounded-lg md:bg-transparent md:overflow-visible md:rounded-none md:relative md:flex md:flex-row">
+                            <a href="#_"
+                                class="inline-flex items-center block w-auto h-16 px-4 text-xl font-black leading-none text-gray-900 md:hidden">
+                                <span class="text-4xl mr-2">✪</span> logo
+                            </a>
+                            <div
+                                class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 font-semibold md:mt-0 md:flex-row md:items-center">
+                                <a href="#_"
+                                    class="inline-block w-full py-2 mx-0 ml-6 text-left text-black md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 2xl:text-lime-700 md:text-center">Accueil</a>
+                                <a href="#_"
+                                    class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 2xl:text-lime-700 md:text-center">Questionnaire</a>
+                                <a href="#_"
+                                    class="inline-block w-full py-2 mx-0 text-left text-gray-500 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">Contact</a>
+
+                                <a href="#_"
+                                    class="absolute top-0 left-0 hidden py-2 mt-6 ml-10 mr-2 text-gray-600 lg:inline-block md:mt-0 md:ml-2 lg:mx-3 md:relative">
+
+                                </a>
+                            </div>
+                            <div
+                                class="flex flex-col items-start justify-end md:ml-16 font-semibold lg:ml-0 w-full pt-4 md:items-center md:w-1/3 flex-shrink-0 md:flex-row md:py-0">
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div @click="showMenu = !showMenu"
+                        class="absolute right-0 flex flex-col items-center items-end justify-center w-10 h-10 bg-white rounded-full cursor-pointer md:hidden hover:bg-gray-100">
+                        <svg class="w-6 h-6 text-gray-700" x-show="!showMenu" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg class="w-6 h-6 text-gray-700" x-show="showMenu" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </div>
+                </div>
+            </nav>
+            <div class="w-full h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100"></div>
+            <!-- Main Hero Content -->
+            <div
+                class="container max-w-md py-20 sm:py-32 mx-auto mt-px text-left sm:max-w-xl sm:px-4 md:max-w-none md:text-center">
+                <h1
+                    class="text-4xl font-bold leading-10 tracking-tight text-left text-gray-900 sm:text-center sm:text-6xl md:text-7xl lg:text-8xl text-balance 2xl:text-lime-700">
+                    Start Crafting Your Next Great Idea</h1>
+                <div
+                    class="mx-auto mt-5 text-gray-400 md:mt-8 max-w-md lg:max-w-lg sm:text-center md:text-xl 2xl:text-lime-700">
+                    Simplifying the creation of landing pages, blog pages, application pages and so much more!</div>
+                <div
+                    class="flex flex-col items-center font-semibold justify-center mt-8 space-y-4 text-center sm:flex-row sm:space-y-0 sm:space-x-4">
+                    <span class="relative inline-flex w-full sm:w-auto">
+                        <a href="#_"
+                            class="inline-flex items-center justify-center w-full px-6 py-3 md:px-8 md:py-4 text-base leading-6 text-white bg-gray-900 border border-transparent rounded-full xl:px-10 sm:w-auto hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800">
+                            Répondre au questionnaire
+                        </a>
+                    </span>
+                    <span class="relative inline-flex w-full sm:w-auto">
+
+                    </span>
                 </div>
             </div>
+            <!-- End Main Hero Content -->
         </div>
-        <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
-            aria-hidden="true">
-            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-green-400 to-blue-500 opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
-                style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)">
-            </div>
-        </div>
-    </div>
-    <footer class="bg-gray-800 text-gray-300 text-center p-4 mt-auto">
-        <div class="flex justify-center space-x-4 mb-2">
-            <a href="https://github.com" target="_blank" class="hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.263.793-.587v-2.17c-3.338.725-4.037-1.613-4.037-1.613-.547-1.387-1.338-1.755-1.338-1.755-1.087-.75.087-.725.087-.725 1.2.087 1.837 1.237 1.837 1.237 1.075 1.837 2.812 1.3 3.5.987.113-.775.425-1.3.775-1.6-2.662-.3-5.462-1.337-5.462-5.962 0-1.312.462-2.387 1.237-3.237-.125-.3-.537-1.512.113-3.15 0 0 1.012-.325 3.312 1.237.962-.263 2-.387 3.037-.387 1.037 0 2.075.125 3.037.387 2.3-1.562 3.312-1.237 3.312-1.237.65 1.637.237 2.85.113 3.15.775.85 1.237 1.925 1.237 3.237 0 4.637-2.8 5.662-5.462 5.962.437.375.825 1.125.825 2.275v3.375c0 .325.2.7.8.587C20.563 21.8 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="hover:text-white">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path
-                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.268c-.966 0-1.75-.784-1.75-1.75s.784-1.75 1.75-1.75 1.75.784 1.75 1.75-.784 1.75-1.75 1.75zm13.5 11.268h-3v-5.5c0-1.381-.028-3.156-1.922-3.156-1.922 0-2.218 1.503-2.218 3.056v5.6h-3v-10h2.881v1.367h.041c.401-.759 1.381-1.559 2.841-1.559 3.041 0 3.6 2.003 3.6 4.606v5.586z" />
-                </svg>
-            </a>
-        </div>
-        <p>&copy; 2025 Vincent Diévart. Tous droits réservés.</p>
-    </footer>
+    </section>
 </body>
-
-</html>
