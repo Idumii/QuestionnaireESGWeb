@@ -76,7 +76,7 @@ error_reporting(E_ALL);
             <!-- Main Hero Content -->
             <section class="w-full px-6 pb-12 pt-16 antialiased bg-white">
                 <div class="mx-auto max-w-7xl pt-16">
-                    <h1 class="text-4xl font-bold text-center text-lime-700">Mentions légales</h1>
+                    <h1 class="text-4xl font-bold text-center text-lime-700 p-8">Mentions légales</h1>
                     <div class="mt-8 space-y-6">
                         <!-- Section Informations légales -->
                         <div>
