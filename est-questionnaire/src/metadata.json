@@ -1,0 +1,6 @@
+{
+  "name": "ESG Questionnaire Filler",
+  "description": "An AI-powered tool to help fill out ESG (Environmental, Social, and Governance) questionnaires based on company information. Uses Gemini API to generate responses.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
