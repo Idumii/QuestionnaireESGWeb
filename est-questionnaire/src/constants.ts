@@ -48,22 +48,27 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
       {
         code: "C1-01",
         text: "Quel(s) groupe(s) important(s) de produits et/ou de services votre entreprise propose-t-elle ?",
+        scoreIfAnswered: 1,
       },
       {
         code: "C1-02",
         text: "Sur quels marchés (secteurs d’activité et zones géographiques) votre entreprise opère-t-elle principalement ?",
+        scoreIfAnswered: 1,
       },
       {
         code: "C1-03",
         text: "Quelles sont les principales relations commerciales de votre entreprise (clients, partenaires, distributeurs) ?",
+        scoreIfAnswered: 1,
       },
       {
         code: "C1-04",
-        text: "Combien de fournisseurs estimez-vous avoir, et quels sont leurs secteurs d’activité et zones géographiques ?",
+        text: "Combien de fournisseurs estimez-vous avoir, et quels sont leurs secteurs d’activité et zones géographiques ?, veuillez préciser si vous n'avez pas de fournisseur",
+        scoreIfAnswered: 1,
       },
       {
         code: "C1-05",
-        text: "Quels sont les éléments clés de votre stratégie d’entreprise relatifs à la durabilité ?",
+        text: "Quels sont les éléments clés de votre stratégie d’entreprise relatifs à la durabilité ?, veuillez laisser vide si nous n'avez pas d'éléments clés",
+        scoreIfAnswered: 1,
       },
     ],
   },
@@ -74,15 +79,18 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
     questions: [
       {
         code: "C2-01",
-        text: "Quelles pratiques, politiques ou initiatives (existantes ou à venir) avez-vous mises en place concernant la durabilité ? (préciser si fournisseur/client)",
+        text: "Quelles pratiques, politiques ou initiatives (existantes ou à venir) avez-vous mises en place concernant la durabilité ? (préciser si fournisseur/client), sinon, laissez vide",
+        scoreIfAnswered: 1,
       },
       {
         code: "C2-02",
-        text: "Quels sont vos objectifs chiffrés en matière de durabilité ?",
+        text: "Quels sont vos objectifs chiffrés en matière de durabilité ?, laissez vide si vous n'avez pas d'objectifs chiffrés",
+        scoreIfAnswered: 1,
       },
       {
         code: "C2-03",
-        text: "Quel est le niveau le plus élevé au sein de votre entreprise responsable de la mise en œuvre de ces pratiques, politiques, objectifs ou initiatives ?",
+        text: "Quel est le niveau le plus élevé au sein de votre entreprise responsable de la mise en œuvre de ces pratiques, politiques, objectifs ou initiatives ? Si aucune personne n'est dédiée à la tâche, laissez vide",
+        scoreIfAnswered: 1,
       },
     ],
   },
@@ -94,38 +102,88 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
       {
         code: "C3-01",
         text: "Quelles sont les années cibles fixées pour vos objectifs de réduction des émissions de GES ?",
+        type: "options",
+        options: ["2025 - 2030", "2030 - 2050", "2050"],
+        scoreMap: {
+          "2025 - 2030": 1,
+          "2030 - 2050": 1,
+          "2050": 1,
+        },
       },
       {
         code: "C3-02",
-        text: "Quelles sont les valeurs cibles correspondant à ces années (en valeur absolue ou relative) ?",
+        text: "Quels sont les pourcentages de réduction visés de vos émissions de GES pour les années mentionnées  ?",
+        type: "options",
+        options: ["<10%", "10 - 30%", "30 - 40%", "40 - 80%", ">80%"],
+        scoreMap: {
+          "<10%": 0.2,
+          "10 - 30%": 0.4,
+          "30 - 40%": 0.6,
+          "40 - 80%": 0.8,
+          ">80%": 1,
+        },
       },
       {
         code: "C3-03",
         text: "Quelles années de base avez-vous choisies pour mesurer votre progression ?",
+        type: "options",
+        options: ["dès 2025", "dès 2030", "> 2040"],
+        scoreMap: {
+          "dès 2025": 1,
+          "dès 2030": 0.7,
+          "> 2040": 0.4,
+        },
       },
       {
         code: "C3-04",
-        text: "Quelles sont les valeurs des émissions GES pour ces années de base ?",
+        text: "Quelles sont les valeurs (en tCo2e) des émissions GES pour ces années de base ?",
+        scoreIfAnswered: 1,
       },
       {
         code: "C3-05",
         text: "Quelles unités utilisez-vous pour exprimer vos cibles GES ?",
+        type: "options",
+        options: [
+          "en % de réduction",
+          "tCo2e",
+          "tCo2e/unité",
+          "kgCO₂e/€ ",
+          "Aucune des ces unités",
+        ],
+        scoreMap: {
+          "en % de réduction": 1,
+          tCo2e: 0.8,
+          "tCo2e/unité": 0.7,
+          "kgCO₂e/€ ": 0.5,
+          "Aucune des ces unités": 0,
+        },
       },
       {
         code: "C3-06",
         text: "Quelle part de votre périmètre d’activité est concernée par ces cibles ? (Scope 1, 1+2, Scope 3…)",
+        type: "options",
+        options: ["Scope 1", "Scope 1 + 2", "Scope 1 + 2 + 3", "Aucune"],
+        scoreMap: {
+          "Scope 1": 0.5,
+          "Scope 1 + 2": 0.7,
+          "Scope 1 + 2 + 3": 1,
+          Aucune: 0,
+        },
       },
       {
         code: "C3-07",
-        text: "Quelles sont les principales actions prévues pour atteindre ces objectifs ?",
+        text: "Quelles sont les principales actions prévues pour atteindre ces objectifs ?, citez les grands axes",
+        scoreIfAnswered: 1,
       },
       {
         code: "C3-08",
         text: "Décrivez votre plan de transition pour l’atténuation du changement climatique.",
+        scoreIfAnswered: 1,
       },
       {
         code: "C3-09",
-        text: "Avez-vous adopté un plan de transition climatique ? Si oui, quand ? Sinon, à quelle échéance ?",
+        text: "Avez-vous adopté un plan de transition climatique ? Si oui, quand ? Sinon, laissez vide",
+        scoreIfAnswered: 1,
       },
     ],
   },
@@ -135,23 +193,36 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
     questions: [
       {
         code: "C4-01",
-        text: "Quels sont les risques climatiques physiques et de transition identifiés pour votre entreprise ?",
+        text: "Quels sont les risques climatiques physiques et de transition identifiés pour votre entreprise ? Sinon, laissez vide",
+        scoreIfAnswered: 1,
       },
       {
         code: "C4-02",
-        text: "Comment avez-vous évalué l’exposition et la sensibilité de vos actifs, activités et chaîne de valeur face à ces risques ?",
+        text: "Comment avez-vous évalué l’exposition et la sensibilité de vos actifs, activités et chaîne de valeur face à ces risques ? Si aucune évaluation, laissez vide",
+        scoreIfAnswered: 1,
       },
       {
         code: "C4-03",
         text: "Quels horizons temporels utilisez-vous pour ces évaluations ?",
+        conditional: {
+          dependsOn: "C4-02",
+          hasAnswer: true,
+        },
       },
       {
         code: "C4-04",
         text: "Avez-vous mis en place des mesures d’adaptation au climat ?",
+        type: "options",
+        options: ["Oui", "Non"],
+        scoreMap: {
+          Oui: 1,
+          Non: 0,
+        },
       },
       {
         code: "C4-05",
-        text: "Quels sont les effets négatifs potentiels de ces risques climatiques sur votre performance financière ?",
+        text: "Quels sont les effets négatifs potentiels de ces risques climatiques sur votre performance financière (perte de marchés etc.) ?",
+        scoreIfAnswered: 1,
       },
     ],
   },
@@ -162,14 +233,35 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
       {
         code: "C5-01",
         text: "Quel est le ratio femmes-hommes au niveau de la direction pour la période de référence ?",
+        type: "options",
+        options: ["0%", "40 - 60%", "> 60%"],
+        scoreMap: {
+          "0%": 0,
+          "40 - 60%": 1,
+          "> 60%": 0.5,
+        },
       },
       {
         code: "C5-02",
         text: "Combien de travailleurs indépendants sans personnel travaillent exclusivement pour l’entreprise ?",
+        type: "options",
+        options: ["0", "1 - 3", "> 3"],
+        scoreMap: {
+          "0%": 1,
+          "1 - 3": 0.5,
+          "> 3": 0,
+        },
       },
       {
         code: "C5-03",
         text: "Combien de travailleurs temporaires sont fournis par des entreprises d’intérim ?",
+        type: "options",
+        options: ["< 10", "10 - 20", "> 20"],
+        scoreMap: {
+          "< 10": 1,
+          "10 - 20": 0.5,
+          "> 20": 0,
+        },
       },
     ],
   },
@@ -183,8 +275,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "options",
         options: ["Oui", "Non", "En cours de développement"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
           "En cours de développement": 0.5,
         },
       },
@@ -193,9 +285,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il le travail des enfants ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -203,9 +299,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il le travail forcé ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -213,9 +313,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il la traite des êtres humains ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -223,9 +327,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il la discrimination ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -233,9 +341,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il la prévention des accidents ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -243,9 +355,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Couvre-t-il d’autres sujets ?",
         type: "options",
         options: ["Oui", "Non", "Non concerné"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -262,9 +378,13 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         text: "Disposez-vous d’un mécanisme de traitement des plaintes ou d’un dispositif d’alerte pour votre personnel ?",
         type: "options",
         options: ["Oui", "Non"],
+        conditional: {
+          dependsOn: "C6-01",
+          value: ["Oui", "En cours de développement"],
+        },
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
     ],
@@ -279,8 +399,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -289,8 +409,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -299,8 +419,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -309,8 +429,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -319,8 +439,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -347,8 +467,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          "Oui": 1,
-          "Non": 0,
+          Oui: 1,
+          Non: 0,
         },
       },
       {
@@ -426,10 +546,15 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         code: "C8-05",
         text: "Êtes-vous exclu des indices de référence UE alignés sur Paris ?",
         type: "radio",
-        options: ["Oui", "Non"],
+        options: [
+          "Oui",
+          "Non, mais je m'efforce de m'aligner avec les indices de référence.",
+          "Je suis concerné, mais ne m'efforce pas de m'aligner avec les indices de référence.",
+        ],
         scoreMap: {
-          Oui: 0,
-          Non: 1,
+          Oui: 1,
+          "Non, mais je m'efforce de m'aligner avec les indices de référence.": 0.5,
+          "Je suis concerné, mais ne m'efforce pas de m'aligné avec les indices de référence.": 0,
         },
       },
     ],
@@ -456,7 +581,7 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Femmes", "Hommes", "Parité"],
         scoreMap: {
-          Femmes: 0.5,
+          Femmes: 0.2,
           Hommes: 0,
           Parité: 1,
         },

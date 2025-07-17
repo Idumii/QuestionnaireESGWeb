@@ -1,15 +1,32 @@
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ESG Questionnaire Filler</title>
+    <title>ESG Questionnaire</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body {
-        font-family: 'Inter', sans-serif; /* A nice sans-serif font often used with Tailwind */
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(240, 253, 244); /* bg-green-50 */
       }
+      
+      #root {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+      
+      /* Style pour s'assurer que tout l'espace est rempli */
+      .flex-grow {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(240, 253, 244); /* bg-green-50 */
+      }
+      
       /* Custom scrollbar for better aesthetics */
       ::-webkit-scrollbar {
         width: 8px;
@@ -27,21 +44,23 @@
         background: #555;
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
-    "react/": "https://esm.sh/react@^19.1.0/",
-    "react": "https://esm.sh/react@^19.1.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
-  <body class="bg-slate-50 text-slate-800">
-    <div id="root"></div>
+    <script type="importmap">
+      {
+        "imports": {
+          "@google/genai": "https://esm.sh/@google/genai@^1.5.1",
+          "react/": "https://esm.sh/react@^19.1.0/",
+          "react": "https://esm.sh/react@^19.1.0",
+          "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+          "react-dom": "https://esm.sh/react-dom@^19.1.0",
+          "jspdf": "https://esm.sh/jspdf@^2.5.1",
+          "html2canvas": "https://esm.sh/html2canvas@^1.4.1"
+        }
+      }
+    </script>
+    <link rel="stylesheet" href="/index.css">
+  </head>
+  <body class="bg-green-50 text-slate-800 h-full m-0">
+    <div id="root" class="h-full w-full"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
-    

@@ -1,6 +1,17 @@
+export interface ConditionalQuestion {
+  dependsOn: string;
+  value: string | string[];
+  hasAnswer?: boolean; // Nouveau champ pour vérifier si une réponse existe
+}
+
 export interface QuestionDefinition {
   code: string;
   text: string;
+  type?: "text" | "radio" | "options" | "select";
+  options?: string[];
+  scoreMap?: Record<string, number>;
+  conditional?: ConditionalQuestion;
+  scoreIfAnswered?: number; // Nouveau champ ajouté
 }
 
 export interface QuestionnaireSection {
