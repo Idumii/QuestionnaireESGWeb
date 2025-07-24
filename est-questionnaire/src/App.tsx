@@ -225,9 +225,13 @@ const App: React.FC = () => {
 
       setAppPhase("evaluation");
 
-      // AJOUT : téléchargement automatique du CSV après un court délai
+      // Envoyer les données à la base de données
       setTimeout(() => {
-        downloadCSVForResearch();
+        saveDataToDatabase(answersToSubmit, {
+          message: `Évaluation terminée. ${scoreMessage}`,
+          sectionScores,
+          overallScore,
+        });
       }, 500);
     }, 1000);
   }, [userAnswers]);
@@ -494,8 +498,34 @@ const App: React.FC = () => {
     URL.revokeObjectURL(url);
   };
 
+  // Fonction pour sauvegarder les données dans la base de données
+  const saveDataToDatabase = async (answers: UserAnswers, evaluation: any) => {
+    try {
+      const response = await fetch('./api/save-response.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          answers,
+          evaluation,
+          timestamp: new Date().toISOString(),
+        }),
+      });
+
+      if (response.ok) {
+        console.log('Données sauvegardées avec succès');
+      } else {
+        console.error('Erreur lors de la sauvegarde:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erreur réseau lors de la sauvegarde:', error);
+      // Continuer même en cas d'erreur pour ne pas bloquer l'utilisateur
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-green-50 flex flex-col">
+    <div className="min-h-screen bg-green-50 dark:bg-slate-900 transition-colors duration-300 flex flex-col">
       {legalPage === "mentions" && (
         <div className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
@@ -505,7 +535,7 @@ const App: React.FC = () => {
       )}
       
       {legalPage === "confidentialite" && (
-        <div className="flex-grow py-8 px-4 sm:px-6 lg:px-8">  {/* Ajout des classes px-4, etc. */}
+        <div className="flex-grow py-8 px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto">
             <PolitiqueConfidentialite onBack={() => setLegalPage(null)} />
           </div>
@@ -523,11 +553,11 @@ const App: React.FC = () => {
       {!legalPage && (
         <div className="py-8 px-4 sm:px-6 lg:px-8 flex-grow flex flex-col">
           <header className="mb-10 text-center">
-            <h1 className="text-4xl font-extrabold text-green-700 tracking-tight">
+            <h1 className="text-4xl font-extrabold text-green-700 dark:text-green-400 tracking-tight transition-colors duration-300">
               Outil d'évaluation de la performance ESG
             </h1>
             {appPhase === "welcome" && (
-              <p className="mt-2 text-lg text-slate-600 max-w-2xl mx-auto text-left">
+              <p className="mt-2 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-left transition-colors duration-300">
                 <br />Ce questionnaire est basé sur les exigences du{" "}
                 <strong>module complet de la
                 VSME</strong> (référentiel volontaire pour une démarche de durabilité dans
@@ -538,13 +568,13 @@ const App: React.FC = () => {
               </p>
             )}
             {appPhase === "questionnaire" && (
-              <p className="mt-2 text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="mt-2 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto transition-colors duration-300">
                 Progressez dans le questionnaire. Vos réponses sont sauvegardées
                 automatiquement.
               </p>
             )}
             {appPhase === "evaluation" && (
-              <p className="mt-2 text-lg text-slate-600 max-w-2xl mx-auto">
+              <p className="mt-2 text-lg text-slate-600 dark:text-slate-300 max-w-2xl mx-auto transition-colors duration-300">
                 Voici votre évaluation ESG générée. Analysez les points soulevés.
               </p>
             )}
@@ -552,12 +582,12 @@ const App: React.FC = () => {
 
           <main className="max-w-3xl w-full mx-auto flex-grow flex flex-col justify-center">
             {appPhase === "welcome" && (
-              <div className="bg-white p-8 rounded-xl shadow-lg h-[400px] overflow-auto flex flex-col">
+              <div className="bg-white dark:bg-slate-800 p-8 rounded-xl shadow-lg h-[400px] overflow-auto flex flex-col transition-colors duration-300">
                 <div>
-                  <h2 className="text-2xl font-semibold text-green-600 mb-6">
+                  <h2 className="text-2xl font-semibold text-green-600 dark:text-green-400 mb-6 transition-colors duration-300">
                     Découvrez maintenant votre notation ESG
                   </h2>
-                  <p className="text-slate-600 mb-8">
+                  <p className="text-slate-600 dark:text-slate-300 mb-8 transition-colors duration-300">
                     Cliquez sur le bouton ci-dessous pour démarrer le questionnaire.
                     Sur la base de vos réponses, une évaluation ESG qualitative sera
                     générée. Il est important de{" "}
@@ -577,7 +607,7 @@ const App: React.FC = () => {
             )}
 
             {appPhase === "questionnaire" && currentQuestion && (
-              <div className="bg-white rounded-xl shadow-lg h-[700px] flex flex-col">
+              <div className="bg-white dark:bg-slate-800 rounded-xl shadow-lg h-[700px] flex flex-col transition-colors duration-300">
                 <InteractiveQuestionnaire
                   question={currentQuestion}
                   totalQuestions={totalQuestions}
@@ -597,7 +627,7 @@ const App: React.FC = () => {
             {(appPhase === "generating" ||
               appPhase === "evaluation" ||
               appPhase === "error") && (
-              <div className="bg-white p-6 rounded-xl shadow-lg h-[700px] overflow-auto">
+              <div className="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg h-[700px] overflow-auto transition-colors duration-300">
                 {appPhase === "generating" && <LoadingSpinner />}
                 <ErrorMessage message={error || ""} />
                 {appPhase === "evaluation" && esgEvaluation && (
@@ -623,26 +653,26 @@ const App: React.FC = () => {
           </main>
         </div>
       )}
-      {/* Footer avec fond vert explicite */}
-      <footer className="w-full bg-green-50 py-4 mt-auto border-t border-green-100">
-        <div className="container mx-auto px-4 text-center text-sm text-slate-600">
+      {/* Footer amélioré pour le mode sombre */}
+      <footer className="w-full bg-green-50 dark:bg-slate-800 py-4 mt-auto border-t border-green-100 dark:border-slate-700 transition-colors duration-300">
+        <div className="container mx-auto px-4 text-center text-sm text-slate-600 dark:text-slate-300 transition-colors duration-300">
           <p>© 2025 Questionnaire ESG réalisé par Lucas LOIR et Vincent DIEVART.</p>
           <div className="mt-2 flex justify-center space-x-4">
             <button 
               onClick={() => setLegalPage('mentions')} 
-              className="hover:underline text-slate-500"
+              className="hover:underline text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
             >
               Mentions légales
             </button>
             <button 
               onClick={() => setLegalPage('confidentialite')}
-              className="hover:underline text-slate-500"
+              className="hover:underline text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
             >
               Politique de confidentialité
             </button>
             <button 
               onClick={() => setLegalPage('conditions')}
-              className="hover:underline text-slate-500"
+              className="hover:underline text-slate-500 dark:text-slate-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-300"
             >
               Conditions d'utilisation
             </button>

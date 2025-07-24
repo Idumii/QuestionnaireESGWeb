@@ -247,7 +247,7 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "options",
         options: ["0", "1 - 3", "> 3"],
         scoreMap: {
-          "0%": 1,
+          "0": 1,
           "1 - 3": 0.5,
           "> 3": 0,
         },
@@ -399,8 +399,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
@@ -409,8 +409,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
@@ -419,8 +419,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
@@ -429,8 +429,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
@@ -439,8 +439,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
@@ -467,8 +467,8 @@ export const QUESTIONNAIRE_STRUCTURE: QuestionnaireSection[] = [
         type: "radio",
         options: ["Oui", "Non"],
         scoreMap: {
-          Oui: 1,
-          Non: 0,
+          Oui: 0,
+          Non: 1,
         },
       },
       {
