@@ -563,7 +563,7 @@ const App: React.FC = () => {
                 VSME</strong> (référentiel volontaire pour une démarche de durabilité dans
                 les PME). <br />
                 Cet outil d'évaluation à été{" "}
-                <strong>réalisé dans le cadre de la rédaction d'une thèse professionnel</strong> qui aborde le sujet de la performance de durabilité des PME.{" "}
+                <strong>réalisé dans le cadre de la rédaction d'une thèse professionnelle</strong> qui aborde le sujet de la performance de durabilité des PME.{" "}
                 
               </p>
             )}
